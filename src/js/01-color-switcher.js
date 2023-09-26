@@ -1,6 +1,6 @@
 const startBtn = document.querySelector('[data-start]');
 const stoptBtn = document.querySelector('[data-stop]');
-const body = document.body;
+const body = document.querySelector('body');
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -8,8 +8,10 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-stoptBtn.addEventListener('click', handleClickStop);
 startBtn.addEventListener('click', handleClickStart);
+stoptBtn.addEventListener('click', handleClickStop);
+
+let timer = null;
 
 function handleClickStart() {
   timer = setInterval(getColor, 1000);
